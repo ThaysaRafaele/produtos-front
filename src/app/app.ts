@@ -41,7 +41,7 @@ export class App implements OnInit {
         this.carregando.set(false);
       },
       error: () => {
-        this.erro.set('Não foi possível carregar os produtos. Verifique se a API está em execução em http://localhost:5000.');
+        this.erro.set('Não foi possível carregar os produtos. Verifique se a API está em execução');
         this.carregando.set(false);
       },
     });
