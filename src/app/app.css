@@ -104,7 +104,13 @@ th {
   font-size: 0.85rem;
 }
 
-.botao-remover {
+.acoes {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.botao-remover,
+.botao-editar {
   background: #ffffff;
   color: #7c3aed;
   border: 1px solid #7c3aed;
@@ -112,8 +118,19 @@ th {
   font-size: 0.85rem;
 }
 
-.botao-remover:hover {
+.botao-remover:hover,
+.botao-editar:hover {
   background: #f5f3ff;
+}
+
+.botao-secundario {
+  background: #ffffff;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+.botao-secundario:hover:not(:disabled) {
+  background: #f3f4f6;
 }
 
 .carregando,

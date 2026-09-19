@@ -7,8 +7,56 @@
   }
 
   <section class="card">
-    <h2>Novo produto</h2>
-    <form class="formulario" (ngSubmit)="adicionarProduto()">
+    <h2>Buscar produto por id</h2>
+    <form class="formulario" (ngSubmit)="buscarProdutoPorId()">
+      <div class="campo">
+        <label for="idBusca">Id</label>
+        <input
+          id="idBusca"
+          type="number"
+          name="idBusca"
+          min="1"
+          [(ngModel)]="idBusca"
+          placeholder="Ex: 1"
+        />
+      </div>
+
+      <button type="submit" [disabled]="buscandoId()">
+        {{ buscandoId() ? 'Buscando...' : 'Buscar' }}
+      </button>
+
+      @if (produtoBuscado() || erroBusca()) {
+        <button type="button" class="botao-secundario" (click)="limparBusca()">Limpar</button>
+      }
+    </form>
+
+    @if (erroBusca()) {
+      <p class="mensagem-erro">{{ erroBusca() }}</p>
+    }
+
+    @if (produtoBuscado(); as produto) {
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Preço</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ produto.id }}</td>
+            <td>{{ produto.nome }}</td>
+            <td>{{ produto.preco | number: '1.2-2' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    }
+  </section>
+
+  <section class="card">
+    <h2>{{ editandoId === null ? 'Novo produto' : 'Editar produto #' + editandoId }}</h2>
+    <form class="formulario" (ngSubmit)="salvarProduto()">
       <div class="campo">
         <label for="nome">Nome</label>
         <input
@@ -34,8 +82,12 @@
       </div>
 
       <button type="submit" [disabled]="salvando()">
-        {{ salvando() ? 'Salvando...' : 'Adicionar' }}
+        {{ salvando() ? 'Salvando...' : (editandoId === null ? 'Adicionar' : 'Salvar edição') }}
       </button>
+
+      @if (editandoId !== null) {
+        <button type="button" class="botao-secundario" (click)="cancelarEdicao()">Cancelar</button>
+      }
     </form>
   </section>
 
@@ -62,7 +114,10 @@
               <td>{{ produto.id }}</td>
               <td>{{ produto.nome }}</td>
               <td>{{ produto.preco | number: '1.2-2' }}</td>
-              <td>
+              <td class="acoes">
+                <button type="button" class="botao-editar" (click)="editarProduto(produto)">
+                  Editar
+                </button>
                 <button type="button" class="botao-remover" (click)="removerProduto(produto.id)">
                   Remover
                 </button>
