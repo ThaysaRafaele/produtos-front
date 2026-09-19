@@ -1,0 +1,123 @@
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+h1 {
+  margin-bottom: 0.25rem;
+}
+
+.subtitulo {
+  color: #6b7280;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.mensagem-erro {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.formulario {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-end;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.campo label {
+  font-size: 0.85rem;
+  color: #374151;
+}
+
+.campo input {
+  padding: 0.5rem 0.6rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.campo input:focus {
+  outline: none;
+  border-color: #7c3aed;
+}
+
+button {
+  background: #7c3aed;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.55rem 1.1rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  background: #6d28d9;
+}
+
+button:disabled {
+  background: #c4b5fd;
+  cursor: not-allowed;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.6rem 0.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+th {
+  color: #374151;
+  font-size: 0.85rem;
+}
+
+.botao-remover {
+  background: #ffffff;
+  color: #7c3aed;
+  border: 1px solid #7c3aed;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+.botao-remover:hover {
+  background: #f5f3ff;
+}
+
+.carregando,
+.vazio {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
